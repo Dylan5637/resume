@@ -316,6 +316,19 @@ $('.open').on('click', function(){
 
 })
 
-$('.openlist li a').on('click', function(){
+$('.openlist li a').on('click', function(e){
+    e.preventDefault()
     $('.open').removeClass('on')
+    let num = $(this).parent().index()
+    let opensct = $('section').eq(num).offset().top
+    $('html, body').animate({
+        scrollTop: opensct
+    }, 800)
+})
+
+$('.gotop a').on('click', function(e){
+    e.preventDefault()
+    $('html, body').animate({
+        scrollTop: 0
+    }, 600)
 })
